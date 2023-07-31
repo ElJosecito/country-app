@@ -1,16 +1,11 @@
-import './index.css'
-import "./styles/style.css"
+import Router from "./Router"
 
-
-import Header from './components/Header'
-import FlagsSection from './components/FlagsSection'
 
 function App() {
 
   return (
    <>
-   <Header/>
-   <FlagsSection/>
+    <Router/>
    </>
   )
 }

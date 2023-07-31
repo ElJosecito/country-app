@@ -1,10 +1,15 @@
 import React from 'react'
 
-function Card({flags, name, population, capital, region}=props) {
+function Card({flags, name, population, capital, region, id}) {
 
+  const setLocalStorage = () => { 
+    console.log(id)
+    localStorage.setItem("country", id)
+  }
   return (
     <>
-        <div className='mt-5 md:w-64 md:h-80 md:m-4 rounded darkBlueElement '>
+        <a href="/country">
+        <div className='mt-5 md:w-64 md:h-80 md:m-4 rounded darkBlueElement' onClick={setLocalStorage}>
             <div className='md:h-40 rounded-t-lg'>
             <img src={flags} alt="" className='rounded-t-md w-full h-full'/>
             </div>
@@ -15,6 +20,7 @@ function Card({flags, name, population, capital, region}=props) {
                 <p className='font-bold nunito'>Capital: <span className='font-light'>{`${capital}`}</span></p>
             </div>
         </div>
+        </a>
     </>
   )
 }

@@ -9,7 +9,7 @@ function FlagsSection() {
   const [next, setNext] = useState(20);
   let myVar = 0;
 
-  const [option, setOption] = useState('')
+  const [option, setOption] = useState("");
 
   const getAllCountries = async () => {
     const response = await fetch(`https://restcountries.com/v3.1/all`);
@@ -20,7 +20,9 @@ function FlagsSection() {
   const getByRegion = async (region) => {
     const response2 = await fetch(`https://restcountries.com/v3.1/all`);
     const data2 = await response2.json();
-    const response = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+    const response = await fetch(
+      `https://restcountries.com/v3.1/region/${region}`
+    );
     const data = await response.json();
     if (Array.isArray(data)) {
       setFlags(data);
@@ -62,16 +64,16 @@ function FlagsSection() {
       setNext((myVar += 20));
     }
   };
-  
+
   const handleOptions = (e) => {
-    setOption(e.target.value)
-  }
+    setOption(e.target.value);
+  };
 
   useEffect(() => {
-    if (option == 'Filter By Region') {
+    if (option == "Filter By Region") {
       getAllCountries();
-    }else{
-      getByRegion(option.toLowerCase())
+    } else {
+      getByRegion(option.toLowerCase());
     }
   }, [option]);
 
@@ -95,10 +97,11 @@ function FlagsSection() {
             />
           </div>
 
-          <select className="select darkBlueElement nunito ml-5 mt-10 mr-16" onClick={handleOptions}>
-            <option  defaultValue>
-              Filter By Region
-            </option>
+          <select
+            className="select darkBlueElement nunito ml-5 mt-10 mr-16"
+            onClick={handleOptions}
+          >
+            <option defaultValue>Filter By Region</option>
             <option>Europe</option>
             <option>Americas</option>
             <option>Asia</option>
@@ -118,12 +121,14 @@ function FlagsSection() {
                 .slice(prev, next)
                 .map((e, index) => (
                   <Card
+                    id={e.name.common}
                     key={index}
                     flags={e.flags.png}
                     name={e.name.common}
                     population={e.population}
                     region={e.region}
                     capital={e.capital}
+                    getByName={getByName}
                   />
                 ))
             )}
