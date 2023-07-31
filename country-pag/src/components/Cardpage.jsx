@@ -40,42 +40,42 @@ function Cardpage() {
                   </div>
                   <div className="max-w-lg w-full flex flex-col justify-center items-center">
                     <div className="w-full">
-                      <h1 className="m-5 font-bold">{e.name.common}</h1>
+                      <h1 className="m-5 font-bold text-xl">{e.name.common}</h1>
                       <div className="lg:flex justify-between w-full mx-5">
                         <ul>
-                          <li>
+                          <li className="my-1">
                             <span className="font-bold">Native Name: </span>{" "}
                             {e.name.official}
                           </li>
-                          <li>
+                          <li className="my-1">
                             <span className="font-bold">Population: </span>{" "}
                             {Number(e.population).toLocaleString("en-US")}
                           </li>
-                          <li>
+                          <li className="my-1">
                             <span className="font-bold">Region: </span>{" "}
                             {e.region}
                           </li>
-                          <li>
+                          <li className="my-1">
                             <span className="font-bold">Subregion: </span>{" "}
                             {e.subregion}
                           </li>
-                          <li>
+                          <li className="my-1">
                             <span className="font-bold">Capital: </span>{" "}
                             {e.capital}
                           </li>
                         </ul>
                         <ul className="mt-5">
-                          <li>
+                          <li className="my-1">
                             <span className="font-bold">
                               Top level Domain:{" "}
                             </span>{" "}
                             {e.tld[0]}
-                          </li>
-                          <li>
+                          </li >
+                          <li className="my-1">
                             <span className="font-bold">Currencies: </span>{" "}
                             {Object.entries(e.currencies).map((e) => e[1].name)}
                           </li>
-                          <li>
+                          <li className="my-1">
                             <span className="font-bold">Region: </span>{" "}
                             {e.region}
                           </li>
