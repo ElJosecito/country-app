@@ -11,8 +11,12 @@ Aqui podemos ver la pagina principal de la aplicacion donde aparecen todos los p
 ## Filtrado por Nombre.
 ![](./MySol/filterByName.png)
 
+Arriba a la izquierda tenemos un input el cual al escribir empieza a filtrar entre todos los paises de la api para encontrar al que se esta buscando.
+
 ## Filtrado por Region.
 ![](./MySol/filterByRegion.png)
+
+Arriba a la derecha poseemos opciones las cuales noa ayudan a filtrar los paise de una manera mas general dividiendose en regiones.
 
 ## Informacion detallada del pais.
 ![](./MySol/flagInformation.png)
