@@ -7,7 +7,7 @@ function Card({flags, name, population, capital, region, id}) {
   }
   return (
     <>
-        <div className='dark:bg-darkBlueElement rounded-lg cursor-pointer' onClick={getByName}>
+        <div className='dark:bg-darkBlueElement rounded-lg cursor-pointer bg-[#f8f8f8] shadow-lg' onClick={getByName}>
             <div className='md:h-64 rounded-t-lg'>
             <img src={flags} alt="" className='rounded-t-md w-full h-full'/>
             </div>

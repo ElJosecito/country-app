@@ -83,19 +83,19 @@ function FlagsSection() {
 
   return (
     <>
-      <section className="w-full min-h-screen pt-16 dark:bg-veryDarkBlue">
-        <div className="flex-col items-center justify-between sm:flex">
-          <div className="container w-full flex justify-between mt-5">
+      <section className="w-full min-h-screen pt-16 dark:bg-veryDarkBlue bg-slate-100">
+        <div className="flex justify-center w-full">
+          <div className="container w-full sm:flex justify-between mt-5 pl-3 md:pl-0">
               <input
                 type="text"
                 placeholder="Search for a country..."
-                className="w-96 p-3 rounded-md dark:bg-darkBlueElement dark:text-veryLightGray"
+                className="md:w-96 p-3 rounded-md dark:bg-darkBlueElement dark:text-veryLightGray bg-[#f8f8f8] shadow-lg"
                 onChange={SearchHandler}
               />
 
 
               <select
-                className="w-96 p-3 pl-5 rounded-lg dark:bg-darkBlueElement dark:text-white"
+                className="md:w-96 p-3 mt-3 ml-2 sm:mt-0 pl-5 rounded-lg dark:bg-darkBlueElement dark:text-white bg-[#f8f8f8] shadow-lg"
                 onChange={handleOptions}
               >
                 <option>Filter By Region</option>
@@ -111,7 +111,7 @@ function FlagsSection() {
 
 
         <div className="flex justify-center mt-10 ml-5 mr-5 sm:ml-16 sm:mr-16">
-          <div className="grid grid-cols-4 gap-10">
+          <div className="grid gap-4 lg:grid-cols-3 xl:grid-cols-4">
             {flags.length === 0 ? (
               <div className="max-w-lg text-4xl text-center">
                 {

@@ -4,6 +4,7 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  "darkMode": "class",
   theme: {
     extend: {
       "colors": {
@@ -13,7 +14,7 @@ module.exports = {
         "darkGray": "hsl(0, 0%, 52%)",
         "veryLightGray": "hsl(0, 0%, 98%)",
         "white": "hsl(0, 0%, 100%)",
-      }
+      },
     },
   },
   plugins: [],

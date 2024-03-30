@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //icons
 //sun icon
@@ -9,31 +9,55 @@ import { FaMoon } from "react-icons/fa";
 function Header() {
   const [theme, setTheme] = useState("light");
 
-  const changeTheme = () => {
+  //handle theme
+  const handleTheme = () => {
     if (theme === "light") {
+      localStorage.setItem("theme", "dark");
       setTheme("dark");
-      document.documentElement.classList.add("dark");
     } else {
+      localStorage.setItem("theme", "light");
       setTheme("light");
-      document.documentElement.classList.remove("dark");
     }
-  }
+  };
+
+  //get theme
+  useEffect(() => {
+    const localTheme = localStorage.getItem("theme");
+    if (localTheme) {
+      setTheme(localTheme);
+    }
+  }, []);
+
+  //set theme
+  useEffect(() => {
+    if (theme === "dark") {
+      document.querySelector("html").classList.add("dark");
+    } else {
+      document.querySelector("html").classList.remove("dark");
+    }
+  }, [theme]);
+
 
 
 
   return (
     <>
-      <header className="fixed z-50 flex w-full dark:bg-darkBlueElement">
+      <header className="fixed z-50 flex w-full dark:bg-darkBlueElement bg-[#f8f8f8] shadow-lg  ">
         <div className="container mx-auto flex justify-between items-center py-4">
-          <h1 className="text-2xl font-bold text-white">Country Info</h1>
+          <h1 className="text-2xl font-bold dark:text-white">Country Info</h1>
 
           <div className="flex items-center">
-            {theme === "light" ? (
-              <FaMoon className="text-white text-2xl cursor-pointer" onClick={changeTheme} />
-            ) : (
-              <FaSun className="text-white text-2xl cursor-pointer" onClick={changeTheme} />
-            )
-            }
+          {theme === "light" ? (
+            <FaSun
+              onClick={handleTheme}
+              className="cursor-pointer mx-5 w-[20px] h-6 text-yellow-500"
+            />
+          ) : (
+            <FaMoon
+              onClick={handleTheme}
+              className="cursor-pointer mx-5 w-[20px] h-6 text-white"
+            />
+          )}
           </div>
         </div>
 
