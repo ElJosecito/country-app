@@ -83,38 +83,40 @@ function FlagsSection() {
 
   return (
     <>
-      <section className="w-full min-h-screen h-fit pt-16">
-        <div className="flex-colum items-center justify-between sm:flex">
-          <div className="mt-10 sm:ml-16 sm:w-80 ml-5 mr-5">
-            <div className="absolute w-10 h-10 flex items-center place-content-center m-1">
-              <ion-icon name="search" size="medium"></ion-icon>
-            </div>
-            <input
-              type="text"
-              placeholder="Type here"
-              className="input w-full pl-12 darkBlueElement nunito"
-              onChange={SearchHandler}
-            />
-          </div>
+      <section className="w-full min-h-screen pt-16 dark:bg-veryDarkBlue">
+        <div className="flex-col items-center justify-between sm:flex">
+          <div className="container w-full flex justify-between mt-5">
+              <input
+                type="text"
+                placeholder="Search for a country..."
+                className="w-96 p-3 rounded-md dark:bg-darkBlueElement dark:text-veryLightGray"
+                onChange={SearchHandler}
+              />
 
-          <select
-            className="select darkBlueElement nunito ml-5 mt-10 mr-16"
-            onClick={handleOptions}
-          >
-            <option defaultValue>Filter By Region</option>
-            <option>Europe</option>
-            <option>Americas</option>
-            <option>Asia</option>
-            <option>Africa</option>
-            <option>Oceania</option>
-          </select>
+
+              <select
+                className="w-96 p-3 pl-5 rounded-lg dark:bg-darkBlueElement dark:text-white"
+                onChange={handleOptions}
+              >
+                <option>Filter By Region</option>
+                <option>Africa</option>
+                <option>Americas</option>
+                <option>Asia</option>
+                <option>Europe</option>
+                <option>Oceania</option>
+              </select>
+            </div>
+       
         </div>
 
+
         <div className="flex justify-center mt-10 ml-5 mr-5 sm:ml-16 sm:mr-16">
-          <div className="w-fit h-screen flex justify-around flex-wrap">
+          <div className="grid grid-cols-4 gap-10">
             {flags.length === 0 ? (
               <div className="max-w-lg text-4xl text-center">
-                <p>No se encontraron países</p>
+                {
+
+                }
               </div>
             ) : (
               flags
@@ -128,7 +130,6 @@ function FlagsSection() {
                     population={e.population}
                     region={e.region}
                     capital={e.capital}
-                    getByName={getByName}
                   />
                 ))
             )}

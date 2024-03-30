@@ -4,19 +4,15 @@ import { useState, useEffect } from "react";
 function Cardpage() {
   const [flags, setFlags] = useState("");
 
-  const getByIdPage = async (name) => {
-    const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
-    const data = await response.json();
-    if (Array.isArray(data)) {
-      setFlags(data);
-      // console.log(data);
-    } else {
-      setFlags([]);
-    }
-  };
-
   useEffect(() => {
-    getByIdPage(localStorage.getItem("country"));
+    const getCountry = async () => {
+      const response = await fetch(
+        `https://restcountries.com/v3.1/name/${window.location.pathname.split("/")[2]}`
+      );
+      const data = await response.json();
+      setFlags(data);
+    };
+    getCountry();
   }, []);
 
   return (
@@ -25,14 +21,13 @@ function Cardpage() {
         <div className="max-w-screen-xl w-full h-screen py-16 lg:flex justify-around">
           {flags &&
             flags.map((e) => {
-              
               return (
                 <>
                   <div className="flex flex-col justify-center">
                     <a href="/">
-                    <button className="flex btn btn-ghost md:w-32 my-2">
-                      Back
-                    </button>
+                      <button className="flex btn btn-ghost md:w-32 my-2">
+                        Back
+                      </button>
                     </a>
                     <div className="max-w-xl m-5">
                       <img src={e.flags.svg} alt="" />
@@ -70,7 +65,7 @@ function Cardpage() {
                               Top level Domain:{" "}
                             </span>{" "}
                             {e.tld[0]}
-                          </li >
+                          </li>
                           <li className="my-1">
                             <span className="font-bold">Currencies: </span>{" "}
                             {Object.entries(e.currencies).map((e) => e[1].name)}

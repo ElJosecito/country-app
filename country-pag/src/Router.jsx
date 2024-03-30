@@ -14,7 +14,7 @@ function Router() {
       <Header />
       <Routes>
         <Route path="/" element={<FlagsSection />} />
-        <Route path="country" element={<Cardpage />} />
+        <Route path="country/:id" element={<Cardpage />} />
       </Routes>
     </>
   );

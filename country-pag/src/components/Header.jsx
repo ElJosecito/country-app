@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+
+//icons
+//sun icon
+import { FaSun } from "react-icons/fa";
+//moon icon
+import { FaMoon } from "react-icons/fa";
 
 function Header() {
+  const [theme, setTheme] = useState("light");
+
+  const changeTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
+    }
+  }
+
+
+
   return (
     <>
-      <div className="navbar darkBlueElement fixed z-50">
-        <div className="flex-1">
-          <a className=" m-1 normal-case text-xl nunito font-bold">
-            Where in the world?
-          </a>
+      <header className="fixed z-50 flex w-full dark:bg-darkBlueElement">
+        <div className="container mx-auto flex justify-between items-center py-4">
+          <h1 className="text-2xl font-bold text-white">Country Info</h1>
+
+          <div className="flex items-center">
+            {theme === "light" ? (
+              <FaMoon className="text-white text-2xl cursor-pointer" onClick={changeTheme} />
+            ) : (
+              <FaSun className="text-white text-2xl cursor-pointer" onClick={changeTheme} />
+            )
+            }
+          </div>
         </div>
-        
-        {/* <div className="flex items-center btn btn-ghost">
-          <ion-icon name="moon"></ion-icon>
-          <a className="m-1 normal-case text-md munito font-bold">Dark Mode</a>
-        </div> */}
-      </div>
+
+
+      </header>
     </>
   );
 }
